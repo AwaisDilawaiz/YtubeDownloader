@@ -1,0 +1,32 @@
+import pip
+import pytube3 as pytube3
+
+pip install pytube3
+from pytube import youtube
+link = input ("Enter The Link: ")
+yt = youtube (link)
+
+#Title of Video
+print ("Title: ",yt.title)
+
+#Number of View on Video
+print ("Views On Video: ",yt.views)
+
+#Length of The Video
+print ("Length of Video: ",yt.length,"seconds")
+
+#Description of Video
+print ("Description Of Video: ",yt.description)
+
+#Ratings of Video
+print ("Ratings Of Video: ",yt.ratings)
+
+#Printing All The Available Streams
+print (yt.streams)
+print (yt.streams.filter(only_audio=True))
+print (yt.streams.filter(only_video=True))
+print (yt.streams.filter(progessive=True))
+ys = yt.streams.get_highest_resolution()
+ys = yt.streams.get_by_itag('22')
+ys.download()
+ys.download('location')
